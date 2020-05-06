@@ -1,10 +1,10 @@
 import Layout from '../layout/Layout'
-import Puzzle from '../components/Puzzle'
+import PuzzleHandler from '../components/PuzzleHandler'
 
 export default function Home() {
   return (
     <Layout>
-      <Puzzle />
+      <PuzzleHandler />
     </Layout>
   )
 }
