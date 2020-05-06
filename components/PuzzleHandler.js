@@ -20,7 +20,7 @@ class PuzzleHandler extends Component {
 
   state = {
     rows: 3,
-    columns: 3,
+    columns: 4,
     pieces: [],
     emptyPiece: null,
     completed: false,
@@ -126,9 +126,12 @@ class PuzzleHandler extends Component {
 
   getPosition = i => {
     const { rows, columns} = this.state
+    const row = Math.floor(i/columns)
+    const col = i - (columns * Math.floor( i*(1/columns) ) )
+
     return {
-      row: Math.ceil( (i+1)*(1/rows) ) - 1,
-      col: i - (columns * Math.floor( i*(1/columns) ) )
+      row: row,
+      col: col
     }
   }
 
