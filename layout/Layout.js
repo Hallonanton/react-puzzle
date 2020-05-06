@@ -6,7 +6,11 @@ import PageHead from './PageHead'
 ==============================================================================*/
 
 const Wrapper = styled('div')`
-	background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	width: 100%;
+  min-height: 100vh;
 `
 
 /*==============================================================================
@@ -19,6 +23,11 @@ const Layout = ({ children }) => (
     <Wrapper>
     	{children}
     </Wrapper>
+    <style global jsx>{`
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+    `}</style>
   </main>
 )
 

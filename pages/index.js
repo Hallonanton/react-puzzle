@@ -1,25 +1,10 @@
-import styled from '@emotion/styled'
 import Layout from '../layout/Layout'
-
-/*==============================================================================
-  # Styles
-==============================================================================*/
-
-const Test = styled('div')`
-  
-`
-
-
-/*==============================================================================
-  # Component
-==============================================================================*/
+import Puzzle from '../components/Puzzle'
 
 export default function Home() {
   return (
     <Layout>
-      <Test>
-        Innehåll
-      </Test>
+      <Puzzle />
     </Layout>
   )
 }
