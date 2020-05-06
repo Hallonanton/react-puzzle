@@ -19,8 +19,8 @@ class PuzzleHandler extends Component {
   }
 
   state = {
-    rows: 3,
-    columns: 4,
+    rows: 4,
+    columns: 8,
     pieces: [],
     emptyPiece: null,
     completed: false,
