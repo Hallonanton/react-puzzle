@@ -76,6 +76,8 @@ class PuzzleHandler extends Component {
     let itemIndex = null
     let emptyIndex = null
 
+
+    // Get the current index of the two items in the pieces array
     pieces.forEach((piece, i) => {
       if ( piece.text === item.text ) {
         itemIndex = i
@@ -84,16 +86,19 @@ class PuzzleHandler extends Component {
       }
     })
 
+    // Update position and index of the two items
     let updatedPieces = pieces
     let updatedEmptyPiece = Object.assign(emptyPiece, this.getPosition(itemIndex))
     updatedPieces[itemIndex] = updatedEmptyPiece
     updatedPieces[emptyIndex] = Object.assign(item, this.getPosition(emptyIndex))
 
+    // Update the state with new data
     this.setState({
       pieces: updatedPieces,
       emptyPiece: updatedEmptyPiece,
       moves: moves+1
     }, () => {
+      // Check if the puzzle is in the correct order
       if ( this.checkCorrectOrder(updatedPieces) ) {
         this.sucess()
       }
@@ -135,7 +140,6 @@ class PuzzleHandler extends Component {
 
   handlePieceClick = item => {
     let { emptyPiece } = this.state
-
     if ( this.areNeighbours(item, emptyPiece) ) {
       this.switchPlace(item, emptyPiece)
     }

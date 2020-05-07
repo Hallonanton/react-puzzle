@@ -47,9 +47,11 @@ const Puzzle = ({ rows, columns, pieces, onClick, pieceSize = 75 }) => (
   <PuzzleWrapper 
     className="puzzle"
     style={{
+    // Using max-width instead of width so that the puzzle can scale in size 
     maxWidth: `${columns*pieceSize}px`
   }}>
   	<PuzzleBody style={{
+      // Using padding-bottom instead of height so that the puzzle can scale in size
   	  paddingBottom: `${100 * (1 + ((rows/columns) - 1))}%`,
   	}}>
   	  {pieces && pieces.map((item, i) => (
@@ -57,8 +59,10 @@ const Puzzle = ({ rows, columns, pieces, onClick, pieceSize = 75 }) => (
   	        key={item.value}
   	        className={item.text === '' ? 'empty': ''}
   	        style={{
+              // Calculate responsive with and height depending on number of columns/rows
               width: `${100/columns}%`,
               height: `${100/rows}%`,
+              // Calculate position depending on item position in the puzzle grid
   	          top: `${item.row/rows*100}%`,
   	          left: `${item.col/columns*100}%`
   	        }}
