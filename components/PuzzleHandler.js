@@ -10,8 +10,23 @@ import SucessPopup from './SucessPopup'
 
 const Wrapper = styled('div')`
   width: 100%;
+  padding: 0px 15px 100px;
   display: flex;
+  align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    .controls {
+      order: 1;
+      margin-bottom: 30px;
+    }
+
+    .puzzle {
+      order: 2;
+    }
+  }
 `
 
 
@@ -26,8 +41,8 @@ class PuzzleHandler extends Component {
   }
 
   state = {
-    rows: 2,
-    columns: 2,
+    rows: 4,
+    columns: 4,
     pieces: [],
     emptyPiece: null,
     completed: false,

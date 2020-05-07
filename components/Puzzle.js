@@ -44,7 +44,9 @@ const PuzzlePiece = styled('div')`
 ==============================================================================*/
 
 const Puzzle = ({ rows, columns, pieces, onClick, pieceSize = 75 }) => (
-  <PuzzleWrapper style={{
+  <PuzzleWrapper 
+    className="puzzle"
+    style={{
     maxWidth: `${columns*pieceSize}px`
   }}>
   	<PuzzleBody style={{

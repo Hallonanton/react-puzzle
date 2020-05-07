@@ -110,7 +110,7 @@ const Popup = ({ closePopup, moves }) => {
 		    <CloseBtn />
 		    <h2>Congratulations!</h2>
 		    <p>You managed to beat the puzzle with {moves} {moves === 1 ? 'move' : 'moves'}!</p>
-		    <img src="https://media.giphy.com/media/l49JNZ87F3AmPoH0A/giphy.gif" />
+		    <img src="https://media.giphy.com/media/l49JNZ87F3AmPoH0A/giphy.gif" alt="Congratulations!" />
 		  </div>
 		</SucessPopup>
 	)

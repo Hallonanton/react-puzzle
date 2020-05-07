@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import PageHead from './PageHead'
+import Github from '../svg/github.svg'
 
 /*==============================================================================
   # Styles
@@ -11,8 +12,22 @@ const Wrapper = styled('div')`
   justify-content: center;
   align-items: center;
 	width: 100%;
+  padding: 0px 15px;
   min-height: 100vh;
+  box-sizing: border-box;
 `
+
+const Link = styled('a')`
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+`
+
 
 /*==============================================================================
   # Componet
@@ -23,6 +38,9 @@ const Layout = ({ children }) => (
     <PageHead />
     <Wrapper>
     	{children}
+      <Link href="https://github.com/Hallonanton/react-puzzle" target="_blank" rel="noopener noreffer">
+        <Github />
+      </Link>
     </Wrapper>
     <style global jsx>{`
       :root {

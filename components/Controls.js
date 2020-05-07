@@ -65,7 +65,7 @@ const Button = styled('button')`
 ==============================================================================*/
 
 const Controls = ({ moves, shuffle, buttonText }) => (
-	<ControlWrapper>
+	<ControlWrapper className="controls">
 		<div className="content">
 			<h2>How to play</h2>
 			<p>Press the tiles next to the empty tile to switch their place. Order the tiles with the numbers lowest to highest in as few moves as possible. Good luck!</p>
