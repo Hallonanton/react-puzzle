@@ -7,6 +7,7 @@ import PageHead from './PageHead'
 
 const Wrapper = styled('div')`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 	width: 100%;
@@ -24,9 +25,27 @@ const Layout = ({ children }) => (
     	{children}
     </Wrapper>
     <style global jsx>{`
+      :root {
+        --main-bg-color: #f4f6f9;
+        --secondary-bg-color: #fff;
+        --main-text-color: #000;
+        --main-box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        --btn-color: #fff;
+        --btn-bg: linear-gradient(#ff8e59, #ffb153);
+      }
+
       body {
+        color: var(--main-text-color);
+        background-color: var(--main-bg-color);
         font-family: 'Open Sans', sans-serif;
       }
+
+      html, body, #__next, main {
+        padding: 0px;
+        margin: 0px;
+        min-height: 100vh;
+      }
+
     `}</style>
   </main>
 )

@@ -6,14 +6,20 @@ import styled from '@emotion/styled'
 ==============================================================================*/
 
 const PuzzleWrapper = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 `
 
 const PuzzleBody = styled('div')`
   position: relative;
   width: 100%;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid var(--main-text-color);
+  border-radius: 2px;
+  background-color: var(--secondary-bg-color);
+  box-shadow: var(--main-box-shadow);
+  overflow: hidden;
 `
 
 const PuzzlePiece = styled('div')`
@@ -21,8 +27,8 @@ const PuzzlePiece = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid var(--main-text-color);
+  background-color: var(--secondary-bg-color);
   font-weight: 700;
   transition: all 250ms ease;
   box-sizing: border-box;
@@ -37,7 +43,7 @@ const PuzzlePiece = styled('div')`
   # Component
 ==============================================================================*/
 
-const Puzzle = ({ rows, columns, pieces, onClick, pieceSize = 60 }) => (
+const Puzzle = ({ rows, columns, pieces, onClick, pieceSize = 75 }) => (
   <PuzzleWrapper style={{
     maxWidth: `${columns*pieceSize}px`
   }}>

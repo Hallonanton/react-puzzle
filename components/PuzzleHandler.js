@@ -2,10 +2,17 @@ import React, { Component, Fragment } from 'react'
 import styled from '@emotion/styled'
 import Controls from './Controls'
 import Puzzle from './Puzzle'
+import SucessPopup from './SucessPopup'
 
 /*==============================================================================
   # Styles
 ==============================================================================*/
+
+const Wrapper = styled('div')`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
 
 
 /*==============================================================================
@@ -19,11 +26,12 @@ class PuzzleHandler extends Component {
   }
 
   state = {
-    rows: 4,
-    columns: 8,
+    rows: 2,
+    columns: 2,
     pieces: [],
     emptyPiece: null,
     completed: false,
+    showSucess: false,
     moves: 0
   }
 
@@ -78,7 +86,10 @@ class PuzzleHandler extends Component {
   }
 
   sucess = () => {
-    console.log('Sucess')
+    this.setState({
+      completed: true,
+      showSucess: true
+    })
   }
 
 
@@ -102,6 +113,7 @@ class PuzzleHandler extends Component {
       pieces: shuffledPices,
       emptyPiece: shuffledPices[shuffledPices.map(piece => piece.text).indexOf('')],
       completed: false,
+      showSucess: false,
       moves: 0
     })
   } 
@@ -112,6 +124,12 @@ class PuzzleHandler extends Component {
     if ( this.areNeighbours(item, emptyPiece) ) {
       this.switchPlace(item, emptyPiece)
     }
+  }
+
+  closePopup = () => {
+    this.setState({
+      showSucess: false
+    })
   }
 
   /*
@@ -146,10 +164,10 @@ class PuzzleHandler extends Component {
 
   render () {
 
-    const { rows, columns, pieces, moves, completed } = this.state
+    const { rows, columns, pieces, moves, completed, showSucess } = this.state
 
     return (
-      <Fragment>
+      <Wrapper>
         <Puzzle 
           rows={rows}
           columns={columns}
@@ -159,9 +177,15 @@ class PuzzleHandler extends Component {
         <Controls 
           shuffle={this.shufflePieces}
           moves={moves}
-          buttonText={completed ? 'Play again' : 'Shuffle'}
+          buttonText={completed ? 'Play again!' : 'Shuffle'}
         />
-      </Fragment>
+        {showSucess && 
+          <SucessPopup 
+            moves={moves}
+            closePopup={this.closePopup} 
+          />
+         }
+      </Wrapper>
     )
   }
 }
